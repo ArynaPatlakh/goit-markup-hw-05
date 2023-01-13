@@ -276,7 +276,10 @@ a {
 
 .modal {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  transform-origin: left;
+
   top: 50%;
   left: 50%;
 
@@ -287,8 +290,12 @@ a {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+}
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) rotate(360deg) scale(0);
+
+  transform-origin: right;
 }
 
 .modal-close {
@@ -310,6 +317,7 @@ a {
   visibility: hidden;
   pointer-events: none;
 }
+
 /* PRIMARY PAGE */
 
 /* ---------------------Hero---------------------- */
@@ -776,4 +784,33 @@ a {
 
   font-size: 16px;
   line-height: 1.5;
+}
+
+/* ------------------HIDDEN-TEXT----------------------- */
+
+.card-hidden {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-secondary-text {
+  position: absolute;
+  width: 100%;
+  transform: translateY(100%);
+  top: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-bottom: 164px;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  background-color: var(--accent-color);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+}
+
+.card-item:hover .card-secondary-text {
+  transform: translateY(0);
 }
