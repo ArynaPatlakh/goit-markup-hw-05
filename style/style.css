@@ -300,6 +300,8 @@ a {
 
 .modal-close {
   position: absolute;
+
+  cursor: pointer;
   top: 24px;
   right: 24px;
 
@@ -310,6 +312,13 @@ a {
   border-radius: 50%;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: var(--accent-color);
+  fill: #ffffff;
+  border-color: transparent;
 }
 
 .is-hidden {
@@ -374,7 +383,7 @@ a {
 
   cursor: pointer;
 
-  transition-property: background-color, border;
+  transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -382,7 +391,6 @@ a {
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--accent-hover-color);
-  border: 1px solid transparent;
 }
 
 /* -------------------------------About Company----------------------------- */
@@ -812,5 +820,9 @@ a {
 }
 
 .card-item:hover .card-secondary-text {
+  transform: translateY(0);
+}
+
+.card-item:focus .card-secondary-text {
   transform: translateY(0);
 }
